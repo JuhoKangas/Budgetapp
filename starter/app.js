@@ -117,6 +117,7 @@ var budgetController = (function () {
 
 var UIController = (function () {
 
+    //Storing all DOMstrings in one place so future updating will be easier
     var DOMStrings = {
         inputType: '.add__type',
         inputDescription: '.add__description',
