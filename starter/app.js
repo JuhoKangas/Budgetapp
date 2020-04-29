@@ -177,7 +177,7 @@ var UIController = (function () {
 
         dec = numSplit[1];
 
-        type === 'exp' ? sign = '-' : sign = '+';
+        sign = type === 'exp' ? '-' : '+';
 
         return `${ sign } ${ int }.${ dec }`;
     };
@@ -241,7 +241,8 @@ var UIController = (function () {
 
         displayBudget: function (obj) {
             var type;
-            obj.budget > 0 ? type = 'inc' : type = 'exp';
+
+            type = obj.budget > 0 ? 'inc' : 'exp';
 
             document.querySelector(DOMStrings.budgetLabel).textContent = formatNumber(obj.budget, type);
             document.querySelector(DOMStrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
