@@ -199,7 +199,7 @@ var UIController = (function () {
         },
 
         addListItem: function (obj, type) {
-            var html, newHTML, element;
+            var newHTML, element;
 
             //Create HTML string with placeholder
             if (type === 'exp') {
@@ -211,11 +211,6 @@ var UIController = (function () {
                 element = DOMStrings.incomeContainer;
                 newHTML = `<div class="item clearfix" id="inc-${ obj.id }"><div class="item__description">${ obj.description }</div><div class="right clearfix"><div class="item__value">${ formatNumber(obj.value, type) }</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>`;
             }
-
-            //replace HTML text with actual data
-            // newHTML = html.replace('%id%', obj.id);
-            // newHTML = newHTML.replace('%description%', obj.description);
-            // newHTML = newHTML.replace('%value%', obj.value);
 
             //insert the HTML to the DOM
             document.querySelector(element).insertAdjacentHTML("beforeend", newHTML);
@@ -314,7 +309,6 @@ var controller = (function (budgetCtrl, UICtrl) {
 
         document.addEventListener('keydown', function (e) {
             if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
                 ctrlAddItem();
             }
         });
